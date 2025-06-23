@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>树</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.6f3a5708.css" as="style"><link rel="preload" href="/assets/js/app.207f012f.js" as="script"><link rel="preload" href="/assets/js/2.cc175e8b.js" as="script"><link rel="preload" href="/assets/js/37.526a8dac.js" as="script"><link rel="prefetch" href="/assets/js/10.f8f47a61.js"><link rel="prefetch" href="/assets/js/11.63ccb045.js"><link rel="prefetch" href="/assets/js/12.38bcc3b0.js"><link rel="prefetch" href="/assets/js/13.f0b82945.js"><link rel="prefetch" href="/assets/js/14.dfa95d42.js"><link rel="prefetch" href="/assets/js/15.4f58081f.js"><link rel="prefetch" href="/assets/js/16.cb197de2.js"><link rel="prefetch" href="/assets/js/17.e272604a.js"><link rel="prefetch" href="/assets/js/18.79a0c5c4.js"><link rel="prefetch" href="/assets/js/19.dbb2c780.js"><link rel="prefetch" href="/assets/js/20.e803ceb2.js"><link rel="prefetch" href="/assets/js/21.7d2298ff.js"><link rel="prefetch" href="/assets/js/22.6f9b2c21.js"><link rel="prefetch" href="/assets/js/23.d4e1a874.js"><link rel="prefetch" href="/assets/js/24.e6238a4f.js"><link rel="prefetch" href="/assets/js/25.54d1eac6.js"><link rel="prefetch" href="/assets/js/26.c47508c9.js"><link rel="prefetch" href="/assets/js/27.3d32887a.js"><link rel="prefetch" href="/assets/js/28.ebe08f6d.js"><link rel="prefetch" href="/assets/js/29.447fe5bc.js"><link rel="prefetch" href="/assets/js/3.7bde1793.js"><link rel="prefetch" href="/assets/js/30.610f00fc.js"><link rel="prefetch" href="/assets/js/31.ed32739e.js"><link rel="prefetch" href="/assets/js/32.75b6029a.js"><link rel="prefetch" href="/assets/js/33.e9866fe9.js"><link rel="prefetch" href="/assets/js/34.2832c24a.js"><link rel="prefetch" href="/assets/js/35.e3fbed1c.js"><link rel="prefetch" href="/assets/js/36.cc85ae53.js"><link rel="prefetch" href="/assets/js/38.16934f6d.js"><link rel="prefetch" href="/assets/js/39.d247fc72.js"><link rel="prefetch" href="/assets/js/4.350983bf.js"><link rel="prefetch" href="/assets/js/40.2151f80a.js"><link rel="prefetch" href="/assets/js/5.9d0db71e.js"><link rel="prefetch" href="/assets/js/6.d98397bc.js"><link rel="prefetch" href="/assets/js/7.1f37fa4b.js"><link rel="prefetch" href="/assets/js/8.593bfdab.js"><link rel="prefetch" href="/assets/js/9.1c632b57.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.6f3a5708.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="树"><a href="#树" class="header-anchor">#</a> 树</h2> <h3 id="二叉树和二叉搜索树"><a href="#二叉树和二叉搜索树" class="header-anchor">#</a> 二叉树和二叉搜索树</h3> <h3 id="binarysearchtree类"><a href="#binarysearchtree类" class="header-anchor">#</a> BinarySearchTree类</h3> <h4 id="源码实现"><a href="#源码实现" class="header-anchor">#</a> 源码实现</h4> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">TreeNode</span> <span class="token punctuation">{</span>
+  key
+  left <span class="token operator">=</span> <span class="token keyword">null</span>
+  right <span class="token operator">=</span> <span class="token keyword">null</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>key <span class="token operator">=</span> key
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">BinarySearchTree</span> <span class="token punctuation">{</span>
+  root <span class="token operator">=</span> <span class="token keyword">null</span>
+  <span class="token keyword">private</span> <span class="token function">insertNode</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> newNode</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>newNode<span class="token punctuation">.</span>key <span class="token operator">&lt;</span> node<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>left <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        node<span class="token punctuation">.</span>left <span class="token operator">=</span> newNode
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">insertNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span> newNode<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>right <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        node<span class="token punctuation">.</span>right <span class="token operator">=</span> newNode
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">insertNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> newNode<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">private</span> <span class="token function">inOrderTraverseNode</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">inOrderTraverseNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span> callback<span class="token punctuation">)</span>
+      <span class="token function">callback</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>key<span class="token punctuation">)</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">inOrderTraverseNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> callback<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">private</span> <span class="token function">preOrderTraverseNode</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">callback</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>key<span class="token punctuation">)</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">preOrderTraverseNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span> callback<span class="token punctuation">)</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">preOrderTraverseNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> callback<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">private</span> <span class="token function">postOrderTraverseNode</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">postOrderTraverseNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span> callback<span class="token punctuation">)</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">postOrderTraverseNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> callback<span class="token punctuation">)</span>
+      <span class="token function">callback</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>key<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">private</span> <span class="token function">minNode</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">while</span> <span class="token punctuation">(</span>node <span class="token operator">&amp;&amp;</span> node<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        node <span class="token operator">=</span> node<span class="token punctuation">.</span>left
+      <span class="token punctuation">}</span>
+      <span class="token keyword">return</span> node<span class="token punctuation">.</span>key
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token keyword">null</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">private</span> <span class="token function">maxNode</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">while</span> <span class="token punctuation">(</span>node <span class="token operator">&amp;&amp;</span> node<span class="token punctuation">.</span>right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        node <span class="token operator">=</span> node<span class="token punctuation">.</span>right
+      <span class="token punctuation">}</span>
+      <span class="token keyword">return</span> node<span class="token punctuation">.</span>key
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token keyword">null</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">private</span> <span class="token function">searchNode</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> key</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>key <span class="token operator">&lt;</span> node<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">searchNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>key <span class="token operator">&gt;</span> node<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">searchNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">private</span> <span class="token function">findMinNode</span><span class="token punctuation">(</span><span class="token parameter">node</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">while</span> <span class="token punctuation">(</span>node <span class="token operator">&amp;&amp;</span> node<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        node <span class="token operator">=</span> node<span class="token punctuation">.</span>left
+      <span class="token punctuation">}</span>
+      <span class="token keyword">return</span> node
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token keyword">null</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">private</span> <span class="token function">removeNode</span><span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> key</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>node <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">null</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>key <span class="token operator">&lt;</span> node<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      node<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">removeNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+      <span class="token keyword">return</span> node
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>key <span class="token operator">&gt;</span> node<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      node<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">removeNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+      <span class="token keyword">return</span> node
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>left <span class="token operator">===</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> node<span class="token punctuation">.</span>right <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        node <span class="token operator">=</span> <span class="token keyword">null</span>
+        <span class="token keyword">return</span> node
+      <span class="token punctuation">}</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>left <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        node <span class="token operator">=</span> node<span class="token punctuation">.</span>right
+        <span class="token keyword">return</span> node
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>right <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        node <span class="token operator">=</span> node<span class="token punctuation">.</span>left
+        <span class="token keyword">return</span> node
+      <span class="token punctuation">}</span>
+      <span class="token keyword">let</span> aux <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">findMinNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
+      node<span class="token punctuation">.</span>key <span class="token operator">=</span> aux<span class="token punctuation">.</span>key
+      node<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">removeNode</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> aux<span class="token punctuation">.</span>key<span class="token punctuation">)</span>
+      <span class="token keyword">return</span> node
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">insert</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> node <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TreeNode</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>root <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>root <span class="token operator">=</span> node
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">insertNode</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>root<span class="token punctuation">,</span> node<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">search</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">searchNode</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>root<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 中序遍历</span>
+  <span class="token function">inOrderTraverse</span><span class="token punctuation">(</span><span class="token parameter">callback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">inOrderTraverseNode</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>root<span class="token punctuation">,</span> callback<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">preOrderTraverse</span><span class="token punctuation">(</span><span class="token parameter">callback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">preOrderTraverseNode</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>root<span class="token punctuation">,</span> callback<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">postOrderTraverse</span><span class="token punctuation">(</span><span class="token parameter">callback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">postOrderTraverseNode</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>root<span class="token punctuation">,</span> callback<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">min</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">minNode</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>root<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">max</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">maxNode</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>root<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">remove</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>root <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">removeNode</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>root<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">printNode</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> tree <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BinarySearchTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span>
+tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span>
+tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span>
+tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span>
+tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span>
+tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span>
+tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span>
+tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">14</span><span class="token punctuation">)</span>
+tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>
+tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">18</span><span class="token punctuation">)</span>
+tree<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">)</span>
+tree<span class="token punctuation">.</span><span class="token function">inOrderTraverse</span><span class="token punctuation">(</span>printNode<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'========================='</span><span class="token punctuation">)</span>
+tree<span class="token punctuation">.</span><span class="token function">preOrderTraverse</span><span class="token punctuation">(</span>printNode<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'========================='</span><span class="token punctuation">)</span>
+tree<span class="token punctuation">.</span><span class="token function">postOrderTraverse</span><span class="token punctuation">(</span>printNode<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'========================='</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>tree<span class="token punctuation">.</span><span class="token function">search</span><span class="token punctuation">(</span><span class="token number">33</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.207f012f.js" defer></script><script src="/assets/js/2.cc175e8b.js" defer></script><script src="/assets/js/37.526a8dac.js" defer></script>
+  </body>
+</html>

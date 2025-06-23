@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>模块化</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.6f3a5708.css" as="style"><link rel="preload" href="/assets/js/app.207f012f.js" as="script"><link rel="preload" href="/assets/js/2.cc175e8b.js" as="script"><link rel="preload" href="/assets/js/23.d4e1a874.js" as="script"><link rel="prefetch" href="/assets/js/10.f8f47a61.js"><link rel="prefetch" href="/assets/js/11.63ccb045.js"><link rel="prefetch" href="/assets/js/12.38bcc3b0.js"><link rel="prefetch" href="/assets/js/13.f0b82945.js"><link rel="prefetch" href="/assets/js/14.dfa95d42.js"><link rel="prefetch" href="/assets/js/15.4f58081f.js"><link rel="prefetch" href="/assets/js/16.cb197de2.js"><link rel="prefetch" href="/assets/js/17.e272604a.js"><link rel="prefetch" href="/assets/js/18.79a0c5c4.js"><link rel="prefetch" href="/assets/js/19.dbb2c780.js"><link rel="prefetch" href="/assets/js/20.e803ceb2.js"><link rel="prefetch" href="/assets/js/21.7d2298ff.js"><link rel="prefetch" href="/assets/js/22.6f9b2c21.js"><link rel="prefetch" href="/assets/js/24.e6238a4f.js"><link rel="prefetch" href="/assets/js/25.54d1eac6.js"><link rel="prefetch" href="/assets/js/26.c47508c9.js"><link rel="prefetch" href="/assets/js/27.3d32887a.js"><link rel="prefetch" href="/assets/js/28.ebe08f6d.js"><link rel="prefetch" href="/assets/js/29.447fe5bc.js"><link rel="prefetch" href="/assets/js/3.7bde1793.js"><link rel="prefetch" href="/assets/js/30.610f00fc.js"><link rel="prefetch" href="/assets/js/31.ed32739e.js"><link rel="prefetch" href="/assets/js/32.75b6029a.js"><link rel="prefetch" href="/assets/js/33.e9866fe9.js"><link rel="prefetch" href="/assets/js/34.2832c24a.js"><link rel="prefetch" href="/assets/js/35.e3fbed1c.js"><link rel="prefetch" href="/assets/js/36.cc85ae53.js"><link rel="prefetch" href="/assets/js/37.526a8dac.js"><link rel="prefetch" href="/assets/js/38.16934f6d.js"><link rel="prefetch" href="/assets/js/39.d247fc72.js"><link rel="prefetch" href="/assets/js/4.350983bf.js"><link rel="prefetch" href="/assets/js/40.2151f80a.js"><link rel="prefetch" href="/assets/js/5.9d0db71e.js"><link rel="prefetch" href="/assets/js/6.d98397bc.js"><link rel="prefetch" href="/assets/js/7.1f37fa4b.js"><link rel="prefetch" href="/assets/js/8.593bfdab.js"><link rel="prefetch" href="/assets/js/9.1c632b57.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.6f3a5708.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><ol><li>ES6中的模块化</li></ol> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// file a.js</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token comment">// file b.js</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span>a<span class="token punctuation">,</span> b<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./a.js'</span>
+<span class="token keyword">import</span> <span class="token constant">XXX</span> <span class="token keyword">from</span> <span class="token string">'./b.js'</span>
+</code></pre></div><ol start="2"><li>CommonJS</li></ol> <blockquote><p>Node独有的规范，浏览器使用需要用到Browserify解析</p></blockquote> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// a.js</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">a</span><span class="token operator">:</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// or</span>
+exports<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token comment">// b.js</span>
+<span class="token keyword">var</span> module <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./a.js'</span><span class="token punctuation">)</span>
+module<span class="token punctuation">.</span>a <span class="token comment">// -&gt; log 1</span>
+</code></pre></div><blockquote><p>CommonJS和ES6中的模块化两者区别</p></blockquote> <ul><li>前者支持动态引入，后者目前不支持，已有提案。前者是同步导入，因为用于服务端，文件都在本地，同步导入即使卡住主线程影响也不大</li> <li>而后者是异步导入，因为用于浏览器，需要下载文件，如果也采用同步引入会对渲染进程影响很大</li> <li>前者在导出时是值拷贝，就算导出的值改变了，导入的值也不会改变。</li> <li>后者导入导出的值都指向同一个内存地址，所以导入值会随导出值变化</li> <li>后者会被编译成require/exports来执行</li></ul> <ol start="2"><li>RequireJS(AMD)</li></ol> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// AMD</span>
+<span class="token function">define</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'./a'</span><span class="token punctuation">,</span> <span class="token string">'./b'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  a<span class="token punctuation">.</span><span class="token function">do</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  b<span class="token punctuation">.</span><span class="token function">do</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token function">define</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">require<span class="token punctuation">,</span> exports<span class="token punctuation">,</span> module</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./a'</span><span class="token punctuation">)</span>
+  a<span class="token punctuation">.</span><span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./b'</span><span class="token punctuation">)</span>
+  b<span class="token punctuation">.</span><span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.207f012f.js" defer></script><script src="/assets/js/2.cc175e8b.js" defer></script><script src="/assets/js/23.d4e1a874.js" defer></script>
+  </body>
+</html>
